@@ -14,9 +14,32 @@
     <% @lists.each do |list| %>
       <tr>
         <td><%= list.name %></td>
+        <td></td>
         <td><%= link_to 'Show', list %></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td><%= link_to 'Edit', edit_list_path(list) %></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <!-- incomplete_task is within quotes is just a string and is appended with list.id
+        incomplete_tasks is based on the routes we defined in routes.rb!-->
+        <td><%= link_to 'Add ToDo Items', new_task_path+"?list_id=#{list.id}" %></td>
+        <!-- alternative way to call the same url
+        <td><%= link_to 'Add ToDo Items', '/tasks/new'+ "?list_id=#{list.id}" %></td>
+        !-->
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><%= link_to 'Show Incomplete Tasks', '/incomplete_tasks/'+list.id.to_s    %></td>
+        <td></td>
+        <td></td>
+        <td></td>
         <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td></td>
+        <td></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>

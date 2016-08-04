@@ -18,14 +18,14 @@
 
 
 
-  <% @list.each do |list| %>
+  <% @tasks.each do |task| %>
   <tr>
-  <td><%= list.name %></td>
-  <td><%= list.notes %></td>
-  <td><%= list.complete %></td>
-  <td><%= link_to 'Edit', edit_list_path(@list) %></td>
+  <td><%= task.name %></td>
+  <td><%= task.notes %></td>
+  <td><%= task.complete %></td>
+  <td><%= link_to 'Edit', edit_list_path(task) %></td>
 
   </tr>
-
+<% end %>
 
 <%= link_to 'Back', lists_path %>

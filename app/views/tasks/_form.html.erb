@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <h2> List::: <%= List.find(@list).name %> </h2>
+
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
@@ -26,4 +28,8 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+  <!--this is why we set the @list variable in the method, so we can use it here
+  to tie in the tasks to a list !-->
+  <%= f.hidden_field :list_id, :value => @list %>
+
 <% end %>

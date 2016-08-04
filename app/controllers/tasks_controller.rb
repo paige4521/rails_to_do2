@@ -14,7 +14,10 @@ class TasksController < ApplicationController
 
   # GET /tasks/new
   def new
+
     @task = Task.new
+    # another way to also write the above @task.list_id = params[:list_id]
+    @list =params['list_id']
   end
 
   # GET /tasks/1/edit
@@ -36,6 +39,30 @@ class TasksController < ApplicationController
       end
     end
   end
+
+#setter method - sets the due date
+def set_due_date
+
+  @task = Task.find(params["id"])
+  @task.duedate = params["duedate"]
+  @task.save
+
+redirect_to task_path(@task)
+#or redirect_to "/tasks/#{@task.id}"
+end
+
+
+#getter method - don't understand
+def returnduedate
+@task = Task.find(parmas["id"])
+@task.duedate = params[:duedate]
+@task.duedate
+
+end
+
+def duedate_form
+@task_id = params[:task_id]
+end
 
   # PATCH/PUT /tasks/1
   # PATCH/PUT /tasks/1.json
@@ -69,6 +96,6 @@ class TasksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
-      params.require(:task).permit(:name, :complete, :notes)
+      params.require(:task).permit(:name, :complete, :notes, :list_id)
     end
 end

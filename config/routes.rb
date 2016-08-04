@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
    root 'lists#index'
 
+   get 'incomplete_tasks/:id' => 'lists#incomplete_tasks'
+   patch '/tasks/set_due_date' => 'tasks#set_due_date'
+   get '/tasks/duedate_form' => 'tasks#duedate_form'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

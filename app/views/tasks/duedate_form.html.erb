@@ -1,0 +1,9 @@
+ <%= form_tag '/tasks/set_due_date' do |f| %>
+
+<%= f.date_field :duedate %>
+
+
+
+  <%= f.hidden_field :task_id, :value => @task_id%>
+
+<% end %>

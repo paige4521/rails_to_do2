@@ -10,7 +10,22 @@ class ListsController < ApplicationController
   # GET /lists/1
   # GET /lists/1.json
   def show
+    #lists all tasks that are incomplete
+
+
+
+
+
   end
+
+def incomplete_tasks
+
+
+  @tasks = Task.where(:complete =>false, :list_id =>params["id"] )
+  
+end
+
+
 
   # GET /lists/new
   def new
